@@ -1,0 +1,20 @@
+:root {
+    --verde-claro: #4CAF50;
+    --verde-medio: #007A33;
+    --verde-escuro: #005B26;
+
+    --amarelo-claro: #F3E777;
+    --amarelo-medio: #F8D936;
+    --amarelo-escuro: #FFBA00;
+
+    --azul-claro:#7986CB;
+    --azul-medio: #3E4095;
+    --azul-escuro: #1E1A78;
+
+    --cinza-claro:#f5f5f5;
+    --cinza-medio:#8f8f8f;
+    --cinza-escuro:#252525;
+    --preto:#161616;
+
+    --bg-gradient: linear-gradient(90deg, #1E1A78 0%, #4CAF50 60%, #FFBA00 120%);
+}
