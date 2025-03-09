@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--cinza-claro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-size: 1.6vh;
+}
+
+.navbar {
+    background-color: var(--preto);
+    height: 80px;
+}
+
+.navbar-logo {
+    height: 45px;
+}
+
+.card {
+    margin-top: 80px;
+}
+
+.btn-primary {
+    background-color: var(--azul-escuro);
+    font-size: 2vh;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary:hover {
+    background-color:var(--verde-escuro);
+}
+
+.btn-outline-secondary {
+    background-color: var(--preto);
+    font-size: 2vh;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: var(--cinza-claro);
+    border: 1.5px solid;
+}
+
+.btn-outline-secondary:hover {
+    background-color:var(--verde-escuro);
+}
+
+.form-label {
+    font-size: 2.3vh;
+
+}
+
+.form-control {
+    font-style: italic;
+    font-size: 1.9vh;
+}
