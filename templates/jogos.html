@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Jogos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-4">
+        <h2 class="text-center">Gerenciar Jogos</h2>
+        <a href="/" class="btn btn-outline-secondary mb-3">Voltar para Home</a>
+
+        <!-- Formulário para Adicionar/Editar Jogo -->
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5 id="form-title">Cadastrar Novo Jogo</h5>
+                <form id="jogo-form">
+                    <input type="hidden" id="jogo-id">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome do Jogo</label>
+                        <input type="text" class="form-control" id="nome" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoria" class="form-label">Categoria</label>
+                        <input type="text" class="form-control" id="categoria" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="preco" class="form-label">Preço (R$)</label>
+                        <input type="number" class="form-control" id="preco" required>
+                    </div>
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                    <button type="button" class="btn btn-secondary" id="cancel-edit"
+                        style="display: none;">Cancelar</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Lista de Jogos -->
+        <table class="table table-bordered mt-4">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Categoria</th>
+                    <th>Preço</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="jogo-list">
+                <!-- Aqui os jogos serão listados dinamicamente via JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="/js/jogos.js"></script>
+</body>
+
+</html>
