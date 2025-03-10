@@ -1,4 +1,5 @@
-const API_URL = "http://localhost:8080/jogo"; // URL correta da API
+const API_URL =
+  "https://iara-games-usuario-listajogos-ba-production.up.railway.app/jogo";
 
 document.addEventListener("DOMContentLoaded", () => {
   carregarJogos();
@@ -11,33 +12,39 @@ document.addEventListener("DOMContentLoaded", () => {
 // 🟢 LISTAR TODOS OS JOGOS
 function carregarJogos() {
   fetch(API_URL)
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Erro ao carregar jogos");
+      }
+      return response.json(); // Converta a resposta para JSON
+    })
     .then((jogos) => {
+      console.log(jogos); // Verifique o que está sendo retornado pela API
       const lista = document.getElementById("jogo-list");
       lista.innerHTML = "";
 
       jogos.forEach((jogo) => {
         const row = document.createElement("tr");
         row.innerHTML = `
-                    <td>${jogo.id}</td>
-                    <td>${jogo.nome}</td>
-                    <td>${jogo.categoria}</td>
-                    <td>R$ ${jogo.preco.toFixed(2)}</td>
-                    <td>
-                        <button class="btn btn-warning btn-sm" onclick="editarJogo(${
-                          jogo.id
-                        }, '${jogo.nome}', '${jogo.categoria}', ${
+          <td>${jogo.id}</td>
+          <td>${jogo.nome}</td>
+          <td>${jogo.categoria}</td>
+          <td>R$ ${jogo.preco.toFixed(2)}</td>
+          <td>
+            <button class="btn btn-warning btn-sm" onclick="editarJogo(${
+              jogo.id
+            }, '${jogo.nome}', '${jogo.categoria}', ${
           jogo.preco
         })">Editar</button>
-                        <button class="btn btn-danger btn-sm" onclick="deletarJogo(${
-                          jogo.id
-                        })">Excluir</button>
-                    </td>
-                `;
+            <button class="btn btn-danger btn-sm" onclick="deletarJogo(${
+              jogo.id
+            })">Excluir</button>
+          </td>
+        `;
         lista.appendChild(row);
       });
     })
-    .catch((error) => console.error("Erro ao carregar jogos:", error));
+    .catch((error) => console.error("Erro ao carregar jogos:", error)); // Trate os erros
 }
 
 // ✏️ EDITAR JOGO
@@ -95,7 +102,9 @@ function salvarJogo(event) {
 function deletarJogo(id) {
   if (confirm("Tem certeza que deseja excluir este jogo?")) {
     fetch(`${API_URL}/${id}`, { method: "DELETE" })
-      .then(() => carregarJogos())
+      .then(() => {
+        carregarJogos(); // Recarregar a lista de jogos após a exclusão
+      })
       .catch((error) => console.error("Erro ao excluir jogo:", error));
   }
 }

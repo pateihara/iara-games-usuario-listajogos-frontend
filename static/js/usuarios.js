@@ -1,4 +1,5 @@
-const API_URL = "http://localhost:8080/usuario"; // URL correta da API
+const API_URL =
+  "https://iara-games-usuario-listajogos-ba-production.up.railway.app/usuario";
 
 document.addEventListener("DOMContentLoaded", () => {
   carregarUsuarios();
@@ -88,7 +89,9 @@ function salvarUsuario(event) {
 function deletarUsuario(id) {
   if (confirm("Tem certeza que deseja excluir este usuário?")) {
     fetch(`${API_URL}/${id}`, { method: "DELETE" })
-      .then(() => carregarUsuarios())
+      .then(() => {
+        carregarUsuarios(); // Recarregar a lista de usuários após a exclusão
+      })
       .catch((error) => console.error("Erro ao excluir usuário:", error));
   }
 }
