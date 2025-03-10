@@ -23,8 +23,21 @@ body {
     height: 45px;
 }
 
+.container {
+    padding: 1.5rem;
+    max-width: 1200px;
+    margin-top: 2rem;
+}
+
 .card {
     margin-top: 80px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 1.5rem;
 }
 
 .btn-primary {
@@ -59,4 +72,53 @@ body {
 .form-control {
     font-style: italic;
     font-size: 1.9vh;
+    border-radius: 8px;
+    padding: 0.6rem;
+    border: 1.5px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--azul-escuro);
+    box-shadow: 0 0 0 0.2rem rgba(30, 26, 120, 0.1);
+}
+
+.table {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table thead th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.table thead th:last-child {
+    border-top-right-radius: 8px;
+}
+
+.table thead tr {
+    background-color: var(--azul-escuro);
+}
+
+.table-dark {
+    --bs-table-bg: var(--azul-escuro);
+}
+
+.btn {
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+h2 {
+    padding-top: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--azul-escuro);
+}
+
+h5 {
+    margin-bottom: 1.5rem;
+    color: var(--azul-escuro);
 }
